@@ -68,7 +68,12 @@ ansible_ssh_private_key = "~/.ssh/id_lab_gsbt"
 commit_mode="merge"
 
 
-evpn-microservice ᐅ docker run -it --rm -v ${PWD}/inputs:/inventory -v ${PWD}/diffs:/outputs -v ${PWD}/configs:/config jnprautomate/junos-deployer:latest
+evpn-microservice ᐅ docker run -it --rm \
+	-v ${PWD}/inputs:/inventory \
+	-v ${PWD}/diffs:/outputs \
+	-v ${PWD}/configs:/config \
+	jnprautomate/junos-deployer:latest
+	
 Deploy configuration to Junos devices
   > Check inventory file
   > Inventory file found (inputs/inventory.ini)
