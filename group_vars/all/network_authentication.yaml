@@ -1,0 +1,11 @@
+---
+credentials:
+  junos:
+    host: "{{ ansible_host }}"
+    username: "{{ ansible_ssh_user }}"    # For core module
+    #user: "{{ ansible_ssh_user }}"        # For Juniper.junos module
+    ssh_keyfile: "{{ ansible_ssh_private_key }}"
+    # passwd: User defined password to use to replace key file
+    password: "{{ansible_ssh_pass}}"
+    port: "{{ netconf_port }}"
+    timeout: 20

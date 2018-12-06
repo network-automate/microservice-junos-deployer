@@ -1,0 +1,7 @@
+---
+credentials:
+    host: "{{ ansible_host }}"
+    username: "{{ ansible_ssh_user }}"
+    ssh_keyfile: "{{ ansible_ssh_private_key }}"
+    port: "{{ netconf_port }}"
+    timeout: 20

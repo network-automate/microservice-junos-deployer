@@ -1,0 +1,12 @@
+- name: configure
+  hosts: [evpn_fabric]
+  connection: local
+  gather_facts: no
+
+  pre_tasks:
+    - include_vars: "{{ playbook_dir }}/repository.cfg"
+
+  roles:
+    - config-deploy-core
+
+

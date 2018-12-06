@@ -1,0 +1,8 @@
+---
+- name: Apply config using native ansible module
+  junos_config:
+      provider: "{{ credentials.junos }}"
+      src: "{{ junos_conf }}"
+      update: "{{ conf_mode | default('merge') }}"
+      src_format: text
+      comment: "Applied by Ansible"

@@ -1,0 +1,4 @@
+colorful==0.3.7
+ansible==2.5.2
+junos-eznc==2.1.7
+jxmlease==1.0.1
