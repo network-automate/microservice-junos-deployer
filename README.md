@@ -52,6 +52,20 @@ __Volumes to mount__
 Below is an example of how to use this container
 
 ```shell
+evpn-microservice ᐅ cat inventory/inventory.ini
+
+[demo]
+demo-qfx10k2-14    ansible_host=172.25.90.67
+demo-qfx10k2-15    ansible_host=172.25.90.68
+
+[demo:vars]
+netconf_port=830
+ansible_ssh_user=ansible
+ansible_ssh_pass=juniper123
+ansible_ssh_private_key = "~/.ssh/id_lab_gsbt"
+commit_mode="merge"
+
+
 evpn-microservice ᐅ docker run -it --rm -v ${PWD}/inputs:/inventory -v ${PWD}/diffs:/outputs -v ${PWD}/configs:/config jnprautomate/junos-deployer:latest
 Deploy configuration to Junos devices
   > Check inventory file
@@ -62,25 +76,13 @@ PLAY [Deploy configuration] ****************************************************
 
 TASK [include_vars] ***************************************************************************************************
 ok: [demo-qfx10k2-14]
-ok: [demo-qfx5110-11]
 ok: [demo-qfx10k2-15]
-ok: [demo-qfx5110-9]
-ok: [demo-qfx5110-10]
-ok: [demo-qfx5110-12]
 
 TASK [config-deploy-core : Commit Configuration to devices] ***********************************************************
 changed: [demo-qfx10k2-14]
 changed: [demo-qfx10k2-15]
-changed: [demo-qfx5110-10]
-changed: [demo-qfx5110-9]
-changed: [demo-qfx5110-11]
-changed: [demo-qfx5110-12]
 
 PLAY RECAP ************************************************************************************************************
 demo-qfx10k2-14            : ok=2    changed=1    unreachable=0    failed=0
 demo-qfx10k2-15            : ok=2    changed=1    unreachable=0    failed=0
-demo-qfx5110-10            : ok=2    changed=1    unreachable=0    failed=0
-demo-qfx5110-11            : ok=2    changed=1    unreachable=0    failed=0
-demo-qfx5110-12            : ok=2    changed=1    unreachable=0    failed=0
-demo-qfx5110-9             : ok=2    changed=1    unreachable=0    failed=0
 ```
