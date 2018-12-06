@@ -1,0 +1,10 @@
+
+[edit protocols bgp group underlay]
+-    authentication-key "$9$0vcyO1RhSrMWL36SeMXbwoJGUqfu0IESeAp1Rcr8Lbs24aUk.Pn/tZU0IhcvMs24JGiHqfQ39P5pBIEeKLxN-VY.mTznCUjPQ39tp"; ## SECRET-DATA
++    authentication-key "$9$pmtxuO1RhSKvWz3hrK8dVgoJZHmtpBIhr9AO1ESMWdbs24Zik.FnCaZpBREeKbs2oJDjHm5z6.PA0BIrlWLx7-wkqfTF/ZU.5z6CA"; ## SECRET-DATA
+[edit protocols bgp group INTER_RR]
+-    authentication-key "$9$pWYruO1RhSKvWz3hrK8dVgoJZHmtpBIhr9AO1ESMWdbs24Zik.FnCaZpBREeKbs2oJDjHm5z6.PA0BIrlWLx7-wkqfTF/ZU.5z6CA"; ## SECRET-DATA
++    authentication-key "$9$bvwYgoJGHk.WLJDHmF3Ap0OhrVb24JDNdYgaGq.Fn/CtOEcy8X-uOb2oaiHn/Cp0IRhrKWxylds24Dj.P5Tz6cSev87O1yKWx-d"; ## SECRET-DATA
+[edit protocols bgp group evpn_fabric]
+-    authentication-key "$9$un950BIEcyvM8FnclvLVb4aZGkPpu1RclCtBIhyW8VwYgoGHqm36AJGu1EhKvwYgaZjikPTF/mftO1Rle8X7Ndsq.5Q39GDmTF/At"; ## SECRET-DATA
++    authentication-key "$9$ND-VwYgoUDievgJUH5T69At1h7NbsgJLxVw2oji5QFn/tBIEKMXCtNbY2GUQFn9A0O1hyeWEcxdbsJZik.mfzIRSrK8tuEyeWXx"; ## SECRET-DATA

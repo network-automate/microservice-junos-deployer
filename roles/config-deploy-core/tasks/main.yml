@@ -1,8 +1,10 @@
 ---
-- name: Apply config using native ansible module
-  junos_config:
-      provider: "{{ credentials.junos }}"
-      src: "{{ junos_conf }}"
-      update: "{{ conf_mode | default('merge') }}"
-      src_format: text
-      comment: "Applied by Ansible"
+- name: Commit Configuration to devices
+  juniper_junos_config:
+    provider: "{{credentials.junos}}"
+    load: "{{commit_mode | default('merge')}}"
+    src: "{{junos_conf}}"
+    diff: true
+    diffs_file: "outputs/{{ inventory_hostname }}-diff.log"
+    check: true
+    commit: true

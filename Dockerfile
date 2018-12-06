@@ -15,10 +15,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 ADD . /
 WORKDIR /
 
-# Volumes definition
-# VOLUME /inputs
-# VOLUME /configs
-
 # Baseline configuration
 
 RUN apt-get update -qq && \
@@ -30,7 +26,8 @@ RUN apt-get update -qq && \
 # Microservice specific configuration specific configuration
 
 RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+    pip install -r requirements.txt && \
+    ansible-galaxy install -r requirements.ansible.yaml
 
 
 ENTRYPOINT sh /microservice-deploy-junos.sh
