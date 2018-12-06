@@ -53,6 +53,7 @@ __Volumes to mount__
 
 Below is an example of how to use this container
 
+* Display inventory
 ```shell
 evpn-microservice ᐅ cat inventory/inventory.ini
 
@@ -67,7 +68,20 @@ ansible_ssh_pass=juniper123
 ansible_ssh_private_key = "~/.ssh/id_lab_gsbt"
 commit_mode="merge"
 
-
+```
+* Display list of configs
+```shell
+evpn-microservice ᐅ tree -L 2
+.
+├── configs/
+│   ├── demo-qfx10k2-14.conf
+│   ├── demo-qfx10k2-15.conf
+├── diffs/
+└── inputs/
+    ├── inventory.ini
+```
+* Run container to deploy configuration
+```shell
 evpn-microservice ᐅ docker run -it --rm \
 	-v ${PWD}/inputs:/inventory \
 	-v ${PWD}/diffs:/outputs \
@@ -92,4 +106,28 @@ changed: [demo-qfx10k2-15]
 PLAY RECAP ************************************************************************************************************
 demo-qfx10k2-14            : ok=2    changed=1    unreachable=0    failed=0
 demo-qfx10k2-15            : ok=2    changed=1    unreachable=0    failed=0
+```
+
+* Get list of changes for a given device
+
+```shell
+evpn-microservice ᐅ cat diffs/demo-qfx10k2-14-diff.log
+
+[edit protocols bgp group underlay]
+-    authentication-key "$9$hc1cylKM8N-VtuMXNboajHq.QnEhreMX1Rylv8dVoJGDi.Tz3p0Ik.hrKv7NJGDHqf5Qn9tO36RSreXxVwY24ZzF/CpB.P39tOIR"; ## SECRET-DATA
++    authentication-key "$9$ez0KM8X7-sYg1R7Vs4DjmfTQ/tleWL7VSrM8x-2gDik.PQ69AIEy5QeWXxwsik.fT3n/t01hAprvWLVbgoJZUH9CuOIcQFA01hyr"; ## SECRET-DATA
+
+```
+* Display all files
+```shell
+evpn-microservice ᐅ tree -L 2
+.
+├── configs/
+│   ├── demo-qfx10k2-14.conf
+│   ├── demo-qfx10k2-15.conf
+├── diffs/
+│   ├── demo-qfx10k2-14-diff.log
+│   ├── demo-qfx10k2-15-diff.log
+└── inputs/
+    ├── inventory.ini
 ```
