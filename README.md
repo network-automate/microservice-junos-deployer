@@ -1,4 +1,4 @@
-# Microserrvice to push configuration to Junos device.
+# Microservice to push configuration to Junos device.
 
 ## Description
 
